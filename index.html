@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Homeless Man Generator - Create Realistic Prank Images</title>
+    <meta name="description" content="Generate realistic AI homeless man images for pranks. Easy-to-use tool with instant results. Create convincing photos for social media trends.">
+    <meta name="keywords" content="">
+    <link rel="canonical" href="https://aihomelessman.github.io/">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1f2937',
+                        secondary: '#374151',
+                        accent: '#f59e0b'
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-900 text-white">
+
+    <!-- Tool Area -->
+    <section id="tool" class="py-20 bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h1 class="text-4xl font-bold mb-4 bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">
+                    AI Homeless Man Generator Tool
+                </h1>
+                <p class="text-xl text-gray-300">Upload your image and let AI create realistic homeless man scenes</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Input Card -->
+                <div class="bg-gray-700 rounded-2xl p-8 shadow-2xl">
+                    <h3 class="text-2xl font-bold mb-6 text-amber-400">
+                        <i class="fas fa-upload mr-3"></i>Upload Your Image
+                    </h3>
+                    
+                    <div class="space-y-6">
+                        <div class="border-2 border-dashed border-gray-500 rounded-lg p-8 text-center hover:border-amber-500 transition-colors cursor-pointer" id="dropZone">
+                            <i class="fas fa-cloud-upload-alt text-4xl text-gray-400 mb-4"></i>
+                            <p class="text-gray-300 mb-2">Drag & drop your image here</p>
+                            <p class="text-sm text-gray-500">or click to browse</p>
+                            <input type="file" id="imageInput" class="hidden" accept="image/*">
+                        </div>
+                        
+                        <div class="space-y-4">
+                        </div>
+                        
+                        <button class="w-full bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 text-white font-bold py-4 px-6 rounded-lg text-lg transition-all duration-300 transform hover:scale-105" id="generateBtn">
+                            <i class="fas fa-magic mr-2"></i>Generate AI Homeless Man
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Output Card -->
+                <div class="bg-gray-700 rounded-2xl p-8 shadow-2xl">
+                    <h3 class="text-2xl font-bold mb-6 text-amber-400">
+                        <i class="fas fa-image mr-3"></i>Generated Result
+                    </h3>
+                    
+                    <div id="outputArea" class="space-y-6">
+                        <div class="bg-gray-600 rounded-lg p-8 text-center min-h-64 flex items-center justify-center">
+                            <div class="text-gray-400">
+                                <i class="fas fa-image text-6xl mb-4"></i>
+                                <p class="text-lg">Your AI homeless man image will appear here</p>
+                                <p class="text-sm mt-2">Upload an image and click generate to start</p>
+                            </div>
+                        </div>
+                        
+                        <div class="hidden" id="downloadSection">
+                            <div class="flex space-x-4">
+                                <button class="flex-1 bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg transition-colors">
+                                    <i class="fas fa-download mr-2"></i>Download HD
+                                </button>
+                                <button class="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition-colors">
+                                    <i class="fas fa-share mr-2"></i>Share
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Showcase Section -->
+    <section class="py-16 bg-gray-700">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4 bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">
+                    AI Homeless Man Examples
+                </h2>
+                <p class="text-xl text-gray-300">See the incredible realism of our AI homeless man generator</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                    <img src="compare-1.webp" alt="AI homeless man in living room" class="w-full h-80 object-cover">
+                </div>
+                
+                <div class="bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                    <img src="compare-2.png" alt="AI homeless man in kitchen" class="w-full h-80 object-cover">
+                </div>
+                
+                <div class="bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                    <img src="compare-3.png" alt="AI homeless man in bedroom" class="w-full h-80 object-cover">
+                </div>
+                
+                <div class="bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                    <img src="compare-7.jpeg" alt="AI homeless man example" class="w-full h-80 object-cover">
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- What is AI Homeless Man Section -->
+    <section class="py-16 bg-gray-900">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-6 bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">
+                    What is AI Homeless Man?
+                </h2>
+            </div>
+            
+            <div class="prose prose-lg prose-invert max-w-none">
+                <p class="text-gray-300 text-lg leading-relaxed mb-6">
+                    The <strong class="text-amber-400">AI homeless man</strong> phenomenon is a viral social media trend that uses artificial intelligence image-generation tools to create realistic images of homeless individuals in domestic settings. This trend has gained massive popularity on platforms like TikTok, where users create convincing prank scenarios by inserting AI-generated homeless man figures into photos of their homes.
+                </p>
+                
+                <p class="text-gray-300 text-lg leading-relaxed mb-6">
+                    Using advanced <strong class="text-amber-400">AI homeless man</strong> generators, creators can produce hyperrealistic images that show a disheveled individual with characteristic features like long hair, messy beard, worn clothing, and personal belongings. These images are so convincing that they often fool family members and friends when shared via text messages or social media.
+                </p>
+                
+                <p class="text-gray-300 text-lg leading-relaxed mb-6">
+                    The <strong class="text-amber-400">AI homeless man</strong> trend typically involves uploading photos of different rooms in a house and using AI tools to place the same homeless character in various locations - from bedrooms to kitchens to doorways. The realistic nature of these AI-generated images has made this one of the most popular prank formats on social media platforms.
+                </p>
+                
+                <div class="bg-gray-800 rounded-xl p-6 mt-8">
+                    <h3 class="text-xl font-bold text-amber-400 mb-4">
+                        <i class="fas fa-lightbulb mr-2"></i>How AI Homeless Man Works
+                    </h3>
+                    <ul class="text-gray-300 space-y-2">
+                        <li><i class="fas fa-check text-amber-400 mr-2"></i>Upload your room or house photos</li>
+                        <li><i class="fas fa-check text-amber-400 mr-2"></i>AI generates realistic homeless man figure</li>
+                        <li><i class="fas fa-check text-amber-400 mr-2"></i>Character maintains consistency across images</li>
+                        <li><i class="fas fa-check text-amber-400 mr-2"></i>Perfect for pranks and social media content</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4 bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">
+                    Why Choose Our AI Homeless Man Generator?
+                </h2>
+                <p class="text-xl text-gray-300">The most advanced and realistic AI homeless man generator available</p>
+            </div>
+            
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="bg-gray-800 rounded-xl p-8 text-center hover:bg-gray-700 transition-colors">
+                    <div class="bg-gradient-to-r from-amber-500 to-orange-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-bolt text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-amber-400">Lightning Fast</h3>
+                    <p class="text-gray-300">Generate realistic AI homeless man images in seconds. No waiting, instant results for your pranks.</p>
+                </div>
+                
+                <div class="bg-gray-800 rounded-xl p-8 text-center hover:bg-gray-700 transition-colors">
+                    <div class="bg-gradient-to-r from-amber-500 to-orange-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-eye text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-amber-400">Ultra Realistic</h3>
+                    <p class="text-gray-300">Advanced AI creates incredibly realistic homeless man images that fool everyone. Perfect for viral pranks.</p>
+                </div>
+                
+                <div class="bg-gray-800 rounded-xl p-8 text-center hover:bg-gray-700 transition-colors">
+                    <div class="bg-gradient-to-r from-amber-500 to-orange-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-cog text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-amber-400">Customizable</h3>
+                    <p class="text-gray-300">Choose from multiple homeless man styles, positions, and realism levels to create the perfect prank image.</p>
+                </div>
+                
+                <div class="bg-gray-800 rounded-xl p-8 text-center hover:bg-gray-700 transition-colors">
+                    <div class="bg-gradient-to-r from-amber-500 to-orange-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-mobile-alt text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-amber-400">Mobile Friendly</h3>
+                    <p class="text-gray-300">Works perfectly on all devices. Create AI homeless man images on your phone, tablet, or computer.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="py-20 bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4 bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">
+                    What Users Say About Our AI Homeless Man Generator
+                </h2>
+                <p class="text-xl text-gray-300">Join thousands of satisfied pranksters worldwide</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gray-700 rounded-xl p-6 shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=50&h=50&fit=crop&crop=face" alt="User" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold text-amber-400">Jake M.</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-300">"This AI homeless man generator is incredible! Fooled my entire family with the realistic images. The prank went viral on TikTok!"</p>
+                </div>
+                
+                <div class="bg-gray-700 rounded-xl p-6 shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b5b1?w=50&h=50&fit=crop&crop=face" alt="User" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold text-amber-400">Sarah K.</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-300">"Best AI homeless man tool I've used! Super easy to create realistic prank images. My friends couldn't tell it was fake!"</p>
+                </div>
+                
+                <div class="bg-gray-700 rounded-xl p-6 shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=50&h=50&fit=crop&crop=face" alt="User" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold text-amber-400">Mike R.</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-300">"Amazing quality! The AI homeless man images look so real. Perfect for pranking friends and family. Highly recommend!"</p>
+                </div>
+                
+                <div class="bg-gray-700 rounded-xl p-6 shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=50&h=50&fit=crop&crop=face" alt="User" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold text-amber-400">Emma L.</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-300">"This AI homeless man generator is genius! Created the perfect prank images in seconds. My mom actually called the police!"</p>
+                </div>
+                
+                <div class="bg-gray-700 rounded-xl p-6 shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=50&h=50&fit=crop&crop=face" alt="User" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold text-amber-400">Alex T.</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-300">"Incredible realism! The AI homeless man looks so authentic. Great tool for creating viral content. Easy to use interface too!"</p>
+                </div>
+                
+                <div class="bg-gray-700 rounded-xl p-6 shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <img src="https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?w=50&h=50&fit=crop&crop=face" alt="User" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold text-amber-400">Lisa W.</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-300">"Love this AI homeless man generator! The images are so realistic and the customization options are perfect. Best prank tool ever!"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 bg-gray-900">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4 bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">
+                    Frequently Asked Questions
+                </h2>
+                <p class="text-xl text-gray-300">Everything you need to know about our AI homeless man generator</p>
+            </div>
+            
+            <div class="space-y-6">
+                <div class="bg-gray-800 rounded-xl p-6">
+                    <button class="w-full text-left flex justify-between items-center focus:outline-none" onclick="toggleFAQ(1)">
+                        <h3 class="text-xl font-bold text-amber-400">How realistic are the AI homeless man images?</h3>
+                        <i class="fas fa-chevron-down text-amber-400 transform transition-transform" id="faq-icon-1"></i>
+                    </button>
+                    <div class="hidden mt-4 text-gray-300" id="faq-content-1">
+                        <p>Our AI homeless man generator creates incredibly realistic images that are virtually indistinguishable from real photos. The advanced AI technology ensures authentic-looking homeless man figures with proper lighting, shadows, and integration into your original image.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-800 rounded-xl p-6">
+                    <button class="w-full text-left flex justify-between items-center focus:outline-none" onclick="toggleFAQ(2)">
+                        <h3 class="text-xl font-bold text-amber-400">Is the AI homeless man generator free to use?</h3>
+                        <i class="fas fa-chevron-down text-amber-400 transform transition-transform" id="faq-icon-2"></i>
+                    </button>
+                    <div class="hidden mt-4 text-gray-300" id="faq-content-2">
+                        <p>Yes! Our AI homeless man generator is completely free to use. You can create unlimited realistic homeless man images without any cost. No hidden fees or subscriptions required.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-800 rounded-xl p-6">
+                    <button class="w-full text-left flex justify-between items-center focus:outline-none" onclick="toggleFAQ(3)">
+                        <h3 class="text-xl font-bold text-amber-400">What image formats are supported?</h3>
+                        <i class="fas fa-chevron-down text-amber-400 transform transition-transform" id="faq-icon-3"></i>
+                    </button>
+                    <div class="hidden mt-4 text-gray-300" id="faq-content-3">
+                        <p>Our AI homeless man generator supports all common image formats including JPG, PNG, WEBP, and GIF. Simply upload your image and our AI will process it to add a realistic homeless man figure.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-800 rounded-xl p-6">
+                    <button class="w-full text-left flex justify-between items-center focus:outline-none" onclick="toggleFAQ(4)">
+                        <h3 class="text-xl font-bold text-amber-400">How long does it take to generate an AI homeless man image?</h3>
+                        <i class="fas fa-chevron-down text-amber-400 transform transition-transform" id="faq-icon-4"></i>
+                    </button>
+                    <div class="hidden mt-4 text-gray-300" id="faq-content-4">
+                        <p>Our AI homeless man generator is lightning fast! Most images are processed and ready in just 5-10 seconds. The advanced AI technology ensures quick generation without compromising on quality.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-800 rounded-xl p-6">
+                    <button class="w-full text-left flex justify-between items-center focus:outline-none" onclick="toggleFAQ(5)">
+                        <h3 class="text-xl font-bold text-amber-400">Can I customize the homeless man appearance?</h3>
+                        <i class="fas fa-chevron-down text-amber-400 transform transition-transform" id="faq-icon-5"></i>
+                    </button>
+                    <div class="hidden mt-4 text-gray-300" id="faq-content-5">
+                        <p>Absolutely! Our AI homeless man generator offers multiple customization options including different styles (classic, modern, winter, elderly), positions (sitting, standing, lying, crouching), and realism levels to create the perfect prank image.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-800 rounded-xl p-6">
+                    <button class="w-full text-left flex justify-between items-center focus:outline-none" onclick="toggleFAQ(6)">
+                        <h3 class="text-xl font-bold text-amber-400">Are my uploaded images stored or shared?</h3>
+                        <i class="fas fa-chevron-down text-amber-400 transform transition-transform" id="faq-icon-6"></i>
+                    </button>
+                    <div class="hidden mt-4 text-gray-300" id="faq-content-6">
+                        <p>No, we prioritize your privacy. All images uploaded to our AI homeless man generator are processed securely and immediately deleted after generation. We never store, share, or use your images for any other purpose.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 py-12">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="col-span-2">
+                    <h3 class="text-2xl font-bold mb-4 bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">
+                        AI Homeless Man Generator
+                    </h3>
+                    <p class="text-gray-300 mb-4">
+                        The most advanced AI homeless man generator for creating realistic prank images. Join millions of users creating viral content with our free tool.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-amber-400 transition-colors">
+                            <i class="fab fa-twitter text-2xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-amber-400 transition-colors">
+                            <i class="fab fa-instagram text-2xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-amber-400 transition-colors">
+                            <i class="fab fa-tiktok text-2xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-amber-400 transition-colors">
+                            <i class="fab fa-youtube text-2xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4 text-amber-400">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#tool" class="text-gray-300 hover:text-amber-400 transition-colors">AI Generator</a></li>
+                        <li><a href="#features" class="text-gray-300 hover:text-amber-400 transition-colors">Features</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-amber-400 transition-colors">Tutorials</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-amber-400 transition-colors">Examples</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4 text-amber-400">Support</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-amber-400 transition-colors">Help Center</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-amber-400 transition-colors">Contact Us</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-amber-400 transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-amber-400 transition-colors">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p class="text-gray-400">
+                    © 2024 AI Homeless Man Generator. All rights reserved. Create realistic AI homeless man images for pranks and social media.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
