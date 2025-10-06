@@ -111,12 +111,13 @@ document.addEventListener('DOMContentLoaded', function() {
         showProgressBar();
         
         // After progress completes, show quota modal
+        const randomDelay = Math.floor(Math.random() * 15000) + 5000; // Random 5-20 seconds
         setTimeout(() => {
             showQuotaModal();
             // Reset generate button
             generateBtn.innerHTML = '<i class="fas fa-magic mr-2"></i>Generate AI Homeless Man';
             generateBtn.disabled = false;
-        }, 7000);
+        }, randomDelay);
     }
     
     function showProgressBar() {
